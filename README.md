@@ -1,0 +1,2 @@
+# Yashil-iqtisodiyot
+Krossvord oʻyin
