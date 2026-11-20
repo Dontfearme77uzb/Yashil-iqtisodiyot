@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8"><title>Yashil iqtisodiyot krossvordi</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Yashil iqtisodiyot fani bo‘yicha 30 darajali krossvord. O‘ynashga taklif qilamiz!">
+<meta property="og:type" content="website"><meta property="og:title" content="🌱 Yashil iqtisodiyot krossvordi"><meta property="og:description" content="30 darajali iqtisodiy atamalar krossvordi. Kirish uchun taklif havolasini bosing!">
+<meta name="twitter:card" content="summary"><meta name="theme-color" content="#2e7d32">
+<style>
+:root{--bg:#f3f8f1;--card:#fff;--tx:#1d2b1f;--ac:#2e7d32;--mu:#6b7d6d;--bd:#cfdccd;--ok:#c8e6c9;--er:#ffcdd2;--hl:#fff59d}
+@media(prefers-color-scheme:dark){header,#q,.bar button:not(.s),#lv button.cur{color:#0b1a0c!important}:root{--bg:#121a13;--card:#1b261c;--tx:#e6efe6;--ac:#66bb6a;--mu:#9bb09d;--bd:#33463a;--ok:#1f4d24;--er:#5a2323;--hl:#4d4a14}}
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--tx)}
+header{background:var(--ac);color:#fff;padding:14px 20px}header h1{margin:0;font-size:22px}header p{margin:2px 0 0;font-size:13px;opacity:.9}
+main{max-width:1100px;margin:0 auto;padding:16px}
+#lv{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+#lv button{width:40px;height:34px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:6px;cursor:pointer;font-weight:600}
+#lv button.cur{background:var(--ac);color:#fff}#lv button.done{border-color:var(--ac);color:var(--ac)}#lv button.cur.done{color:#fff}
+#lv button:disabled{opacity:.35;cursor:not-allowed}
+.wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:14px}
+#gridbox{overflow:auto;display:flex;justify-content:center}
+#grid{display:grid;gap:2px}
+.c{width:40px;height:40px;position:relative}
+.c input{width:100%;height:100%;border:1.5px solid var(--ac);border-radius:4px;text-align:center;font-size:18px;font-weight:700;text-transform:uppercase;background:var(--card);color:var(--tx);padding:0;outline:none}
+.c.hl input{background:var(--hl)}.c.ok input{background:var(--ok)}.c.er input{background:var(--er)}
+.c input:focus{box-shadow:0 0 0 2px var(--ac)}
+.c b{position:absolute;top:1px;left:3px;font-size:10px;color:var(--mu);pointer-events:none;font-weight:600}
+#side{flex:1 1 340px;max-width:460px}
+#side ol{max-height:none}
+#q{background:var(--ac);color:#fff;border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:18px;line-height:1.4;font-weight:600}
+#q small{display:block;font-size:12px;opacity:.85;font-weight:500;margin-bottom:2px}
+#left{flex:1 1 440px;min-width:0}
+#side h3{margin:0 0 6px;color:var(--ac);font-size:15px}
+#side ol{margin:0 0 12px;padding:0;list-style:none}
+#side li{padding:6px 8px;border-radius:6px;cursor:pointer;font-size:15px;line-height:1.4}
+#side li:hover{background:var(--bg)}#side li.on{background:var(--hl)}#side li.dn{text-decoration:line-through;color:var(--mu)}
+#side li span{font-weight:700;margin-right:4px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.bar button{padding:8px 14px;border:0;border-radius:6px;background:var(--ac);color:#fff;font-size:14px;cursor:pointer}
+.bar button.s{background:var(--card);color:var(--tx);border:1px solid var(--bd)}
+#msg{margin-top:10px;min-height:22px;font-weight:600;color:var(--ac)}
+.note{font-size:12px;color:var(--mu);margin-top:6px}
+#adm{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:12px;z-index:11}#adm.on{display:flex}#ab{max-width:560px;width:100%;max-height:90vh;overflow:auto}#ab td{padding:4px 2px}#ab .del{padding:2px 8px;font-size:12px}
+#ab .bar button{padding:8px 12px}.alink{background:none;border:0;color:var(--mu);font-size:12px;cursor:pointer;text-decoration:underline;padding:0;margin-top:8px}
+#lg{position:fixed;inset:0;background:var(--bg);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}#lg.on{display:flex}#lgb{max-width:380px;width:100%;text-align:center}#lgb h2{margin:0 0 6px;color:var(--ac)}#lgb input{width:100%;padding:12px;font-size:16px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx);margin:12px 0}#lgb button{width:100%;padding:12px;border:0;border-radius:8px;background:var(--ac);color:#fff;font-size:16px;cursor:pointer}@media(prefers-color-scheme:dark){#lgb button{color:#0b1a0c}}
+#cf{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}#cf.on{display:flex}#cfb{max-width:340px;width:100%;color:var(--tx)}#tst{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;z-index:30;display:none;max-width:90%}
+#ab input{width:100%;padding:10px;font-size:16px;border:1px solid var(--bd);border-radius:6px;background:var(--card);color:var(--tx);margin:6px 0}
+</style></head><body>
+<header><h1>🌱 Yashil iqtisodiyot krossvordi</h1><p>Yashil iqtisodiyot fani bo‘yicha 30 ta daraja · iqtisodiy atamalar · <b id="tot"></b> · 👤 <a href="#" id="who" onclick="askName();return false" style="color:inherit" title="Ismni o‘zgartirish"></a></p></header>
+<main>
+<div id="lv"></div>
+<div class="wrap">
+<div id="left"><div id="q"></div><div class="card" id="gridbox"><div id="grid"></div></div></div>
+<div class="card" id="side">
+<h3 id="ttl"></h3>
+<h3>➡ Gorizontal</h3><ol id="hc"></ol>
+<h3>⬇ Vertikal</h3><ol id="vc"></ol>
+<div class="bar"><button onclick="chk()">Tekshirish</button><button class="s" onclick="hint()">Maslahat</button><button class="s" onclick="load(cur)">Qaytadan</button><button class="s" onclick="reseed()">🔀 Boshqa so‘zlar</button><button id="nx" style="display:none" onclick="load(cur+1)">Keyingi daraja ▶</button></div>
+<div id="msg"></div>
+<div id="onl" style="display:none;margin-top:14px;border-top:1px solid var(--bd);padding-top:12px"><h3>🌐 Onlayn rejim</h3>
+<input id="nm" placeholder="Ism familiyangiz" maxlength="40" onchange="setName()" style="padding:8px;border:1px solid var(--bd);border-radius:6px;width:100%;margin-top:6px;background:var(--card);color:var(--tx)"><div class="note">Reytingda ism-familiyangiz hammaga ko‘rinadi. Daraja yechilganda ochkolar reytingga yoziladi.</div>
+<div id="rm"><div class="bar" style="margin-top:6px"><input id="rc" placeholder="Xona kodi" maxlength="12" style="padding:8px;border:1px solid var(--bd);border-radius:6px;width:130px;background:var(--card);color:var(--tx)"><button onclick="joinR()">Xonaga kirish</button><button id="sb" class="s" style="display:none" onclick="startR()">Musobaqani boshlash</button></div>
+<div id="rs" class="note">Kod kiriting yoki bo‘sh qoldirib yangi xona oching, kodni do‘stingizga yuboring.</div><div id="pl" style="margin-top:8px"></div></div>
+<h3 style="margin-top:12px">🏆 Reyting</h3><ol id="lb"></ol></div>
+<div class="note">Eslatma: SH, CH, O‘, G‘ harflari bitta katakka yoziladi (masalan: “sh”). Apostrof shart emas.</div>
+<button class="alink" onclick="adminOpen()">⚙ Admin</button></div></div></main>
+<div id="lg"><div class="card" id="lgb"><h2>🌱 Xush kelibsiz!</h2><div class="note">Krossvordni boshlash uchun taklif kodi va ism familiyangizni kiriting.</div><input id="lgk" placeholder="Taklif kodi (XXXX-XXXX)" maxlength="12" style="text-transform:uppercase"><input id="lgn" placeholder="Ism familiyangiz" maxlength="40" onkeydown="if(event.key=='Enter')enter()"><div id="lge" class="note" style="color:#c62828;min-height:16px"></div><button onclick="enter()">Boshlash</button><a href="#" class="note" style="display:block;margin-top:10px" onclick="adminOpen();return false">⚙ Admin</a></div></div>
+<div id="cf"><div class="card" id="cfb"></div></div><div id="tst"></div>
+<div id="adm"><div class="card" id="ab"></div></div>
+<script>
+const RAW=[
+"iqtisodiyot:Cheklangan resurslar sharoitida tanlov haqidagi fan|resurs:Ishlab chiqarishda foydalaniladigan vosita|ehtiyoj:Inson talabining asosiy manbai|tanlov:Muqobillardan birini ajratib olish|samara:Sarf va natija nisbati|tovar:Sotish uchun ishlab chiqarilgan mahsulot",
+"talab:Narxga qarab xaridor sotib olishga tayyor miqdor|taklif:Narxga qarab sotuvchi chiqarishga tayyor miqdor|muvozanat:Talab va taklif tenglashgan holat|raqobat:Sotuvchilar o'rtasidagi bozor kurashi|monopoliya:Bozorda yagona sotuvchi hukmronligi|elastiklik:Talabning narxga sezgirligi",
+"inflyatsiya:Narxlarning umumiy darajasi oshishi|deflyatsiya:Narxlarning umumiy darajasi pasayishi|foiz:Kredit uchun to'lanadigan haq|valyuta:Xalqaro hisob-kitob puli|kurs:Valyutalarning o'zaro nisbati|bank:Moliyaviy vositachi muassasa",
+"byudjet:Davlatning yillik daromad va xarajat rejasi|soliq:Davlat xazinasiga majburiy to'lov|defitsit:Xarajatlar daromaddan oshib ketishi|subsidiya:Davlat ishlab chiqaruvchiga beradigan ko'mak|tarif:Xizmat uchun belgilangan narx stavkasi|boj:Import tovarga undiriladigan to'lov",
+"daromad:Faoliyatdan olinadigan pul tushumi|xarajat:Ishlab chiqarishga sarflangan mablag'|foyda:Daromaddan xarajat ayirilgan qoldiq|zarar:Xarajat daromaddan ortiq bo'lgan holat|rentabellik:Foydaning xarajatga nisbati|kapital:Daromad keltiruvchi mablag'",
+"eksport:Tovarni chet elga sotish|import:Tovarni chet eldan olib kirish|bojxona:Chegarada tovarni nazorat qiluvchi organ|tashqi:___ savdo: mamlakatlararo ayirboshlash|globallashuv:Iqtisodiyotlarning dunyo miqyosida bog'lanishi|logistika:Tovar harakatini boshqarish",
+"ekologik:Atrof-muhitga oid|barqaror:Kelajak avlod ehtiyojini xavf ostiga qo'ymaydigan (rivojlanish)|yashil:Past uglerodli iqtisodiyot ramzi|tejamkorlik:Resurs sarfini kamaytirish|ifloslanish:Muhitga zararli moddalar qo'shilishi|tabiiy:___ resurslar: tabiatdan olinadigan boyliklar",
+"eksternaliya:Bozor narxida aks etmagan tashqi ta'sir|karbon:___ solig'i: emissiyaga to'lov|emissiya:Atmosferaga zararli gaz chiqarish|kvota:Chiqarish miqdoriga qo'yilgan chek|jarima:Qoidabuzarlik uchun to'lanadigan pul|rag'bat:Harakatga undovchi iqtisodiy omil",
+"quyosh:Fotoelektr panellar uchun nur manbai|shamol:Turbinani aylantiruvchi tabiiy kuch|biogaz:Organik chiqindidan olinadigan yoqilg'i|vodorod:Kelajak yoqilg'isi, eng yengil element|elektr:Tarmoq orqali uzatiladigan energiya turi|quvvat:Birlik vaqtdagi energiya miqdori",
+"energiya:Qayta tiklanuvchi va tiklanmaydigan turlarga bo'linadi|neft:Qora oltin deb ataluvchi qazilma|gaz:Metan asosidagi tabiiy yoqilg'i|ko'mir:Qattiq qazilma yoqilg'i|zaxira:Yer qa'ridagi qazilma boylik miqdori|tiklanuvchi:Qisqa muddatda o'zi tiklanadigan (energiya)",
+"investitsiya:Kelajakda daromad olish uchun kapital kiritish|aksiya:Kompaniya mulkidan ulush beruvchi qimmatli qog'oz|obligatsiya:Qarz majburiyatini tasdiqlovchi qimmatli qog'oz|dividend:Aksiyadorga to'lanadigan foyda ulushi|birja:Qimmatli qog'ozlar savdosi tashkil etilgan bozor|portfel:Investorga tegishli aktivlar majmui",
+"grant:Qaytarilmaydigan moliyaviy yordam|kredit:Qaytarish sharti bilan berilgan qarz|lizing:Uskunani uzoq muddatli ijaraga berish|sug'urta:Xavfdan himoya qiluvchi moliyaviy xizmat|ipoteka:Ko'chmas mulk garovi evaziga kredit|garov:Qarz qaytarilishini ta'minlovchi mulk",
+"kafolat:Majburiyat bajarilishini ta'minlash|loyiha:Maqsad va muddati aniq ish|rejalashtirish:Maqsadlarni oldindan belgilash|strategiya:Uzoq muddatli rivojlanish yo'l xaritasi|biznes:Foyda olishga qaratilgan faoliyat|tadbirkor:Tavakkal qilib ish boshlovchi shaxs",
+"omil:Ishlab chiqarish ___lari: yer, mehnat, kapital|mehnat:Ishlab chiqarishda inson sarflaydigan kuch|unumdorlik:Birlik vaqtda yaratilgan mahsulot miqdori|texnologiya:Ishlab chiqarish usullari majmui|sanoat:Zavod va fabrikalar tarmog'i|avtomatlashtirish:Jarayonni mashinaga topshirish",
+"aylanma:___ iqtisodiyot: chiqindi yana resursga aylanadi|chiqindi:Qayta ishlanadigan qoldiq|qayta:___ ishlash resursni tejaydi|utilizatsiya:Chiqindini zararsizlantirish|saralash:Chiqindini turlarga ajratish|qadoq:Mahsulotni o'rab turuvchi material",
+"fermer:Yer egasi bo'lgan qishloq tadbirkori|kooperativ:Ixtiyoriy birlashgan xo'jalik|dehqon:Yer ekuvchi kishi|hosildorlik:Gektardan olinadigan hosil miqdori|sug'orish:Ekinlarga suv berish|o'g'it:Hosilni oshiruvchi modda",
+"suv:Eng qimmatli tabiiy resurs|tomchilatib:___ sug'orish suvni tejaydi|iste'mol:Tovarni foydalanish uchun sarflash|tejash:Kam sarflash|nasos:Suyuqlikni haydovchi mashina|kanal:Sun'iy suv yo'li",
+"bandlik:Ishga joylashgan aholi ulushi|ishsizlik:Ish topa olmaslik holati|maosh:Xodimga to'lanadigan oylik haq|malaka:Kasbiy tayyorgarlik darajasi|kasb:Muayyan mutaxassislik|pensiya:Keksalikda to'lanadigan davlat ta'minoti",
+"yalpi:___ ichki mahsulot (YIM)|mahsulot:Mehnat natijasi bo'lgan buyum|o'sish:Ko'rsatkichning ortishi|indeks:Nisbiy o'zgarishni ko'rsatuvchi son|statistika:Raqamli ma'lumotlar fani|ko'rsatkich:Natijani ifodalovchi son",
+"bozor:Xaridor va sotuvchi munosabatlari maydoni|narx:Tovarning pul ifodasi|sotuvchi:Tovar taklif qiluvchi tomon|xaridor:Tovar sotib oluvchi tomon|chakana:___ savdo: iste'molchiga to'g'ridan-to'g'ri sotish|shartnoma:Tomonlar kelishuvini tasdiqlovchi hujjat",
+"qonun:Majburiy huquqiy norma|standart:Sifat bo'yicha belgilangan talab|sertifikat:Muvofiqlikni tasdiqlovchi hujjat|litsenziya:Faoliyatga davlat ruxsatnomasi|nazorat:Qoidalar bajarilishini tekshirish|davlat:Siyosiy-hududiy tashkilot",
+"iqlim:Hududning ko'p yillik ob-havo rejimi|isish:Global ___: o'rtacha harorat ko'tarilishi|issiqxona:Gazlari Yerni isitadigan effekt nomi|uglerod:Karbonning kimyoviy nomi|neytrallik:Emissiya va yutilish tengligi|moslashuv:Iqlim o'zgarishiga ko'nikish",
+"shahar:Katta aholi punkti|transport:Yuk va yo'lovchi tashish tizimi|velosiped:Ekologik toza ikki g'ildirakli vosita|avtobus:Ommaviy yo'lovchi tashish vositasi|poyezd:Temir yo'ldan yuruvchi tarkib|piyoda:Yurib harakatlanuvchi shaxs",
+"izolyatsiya:Issiqlik yo'qotilishini kamaytiruvchi qatlam|isitish:Binoni issiq qilish tizimi|chiroq:Yorug'lik beruvchi asbob|hisoblagich:Sarfni o'lchovchi asbob|akkumulyator:Zaryadlanuvchi energiya jamlagich|samaradorlik:Natija va sarfning nisbati",
+"ekotizim:Tirik jonzotlar va muhit birligi|bioxilma:Turlar boyligi|o'rmon:Karbonni yutuvchi daraxtzor|hayvon:Fauna vakili|yaylov:Chorva boqiladigan yer|qo'riqxona:Tabiat muhofaza qilinadigan hudud",
+"plastik:Parchalanishi yuz yillar oladigan material|shisha:Cheksiz qayta eritiladigan idish materiali|qog'oz:Daraxtdan olinadigan yozuv materiali|metall:Temir, mis, alyuminiy kabilar|karton:Qalin qog'oz, qadoq materiali|alyuminiy:Yengil kumushrang metall, qayta ishlash energiya tejaydi",
+"parij:2015-yilgi iqlim kelishuvi imzolangan shahar|kelishuv:Tomonlar o'rtasidagi bitim|konferensiya:Davlatlar vakillari yig'ilishi|hamkorlik:Birgalikdagi faoliyat|xalqaro:Davlatlararo|protokol:Kioto ___i: xalqaro iqlim hujjati",
+"innovatsiya:Yangilikni amaliyotga joriy etish|startap:Yangi, yuqori xavfli kompaniya|raqamli:___ iqtisodiyot|monitoring:Doimiy kuzatuv|tahlil:Chuqur o'rganish|platforma:Xizmatlarni birlashtiruvchi maydon",
+"hisobot:Faoliyat natijasi bayoni|audit:Mustaqil tekshiruv|shaffoflik:Ochiqlik, yashirinmaslik|javobgarlik:Qilingan ish uchun mas'ullik|boshqaruv:Korxonani yo'naltirish|aksiyador:Kompaniya mulkining ulush egasi",
+"kelajak:Hali kelmagan zamon|farovonlik:Aholining yuqori turmush darajasi|tenglik:Imkoniyatlar teng bo'lishi|diversifikatsiya:Faoliyat turlarini kengaytirish|kompensatsiya:Zararni qoplash|raqobatbardosh:Bozorda yutib chiqa oladigan"];
+const L=RAW.map(s=>s.split("|").map(p=>{const i=p.indexOf(":");const w=p.slice(0,i);return{w,q:p.slice(i+1),t:w.match(/sh|ch|o'|g'|./g)}}));
+const norm=s=>s.toLowerCase().replace(/[ʻʼ’‘`]/g,"'").replace(/'/g,"");
+let pts=[],lt=Date.now(),hints=0,cur=0,done=[],P=[],cells=new Map(),act=0,won=false;
+try{done=JSON.parse(localStorage.getItem("yiq")||"[]")}catch(e){}
+try{pts=JSON.parse(localStorage.getItem("yiq2")||"[]")}catch(e){}
+done.forEach((d,i)=>{if(d&&!pts[i])pts[i]=100});
+const total=()=>pts.reduce((a,b)=>a+(b||0),0);
+function save(){try{localStorage.setItem("yiq",JSON.stringify(done));localStorage.setItem("yiq2",JSON.stringify(pts))}catch(e){}}
+function ok(g,t,r,c,d){const dr=d?1:0,dc=d?0:1,e=(R,C)=>g.get(R+","+C);let ov=0;
+ if(e(r-dr,c-dc)||e(r+dr*t.length,c+dc*t.length))return false;
+ for(let i=0;i<t.length;i++){const R=r+dr*i,C=c+dc*i,x=e(R,C);
+  if(x){if(x.k!==t[i]||x[d?"v":"h"])return false;ov++}
+  else if(e(R+dc,C+dr)||e(R-dc,C-dr))return false}
+ return ov>0}
+function put(g,t,r,c,d){t.forEach((k,i)=>{const key=(r+(d?i:0))+","+(c+(d?0:i));const x=g.get(key)||{k};x[d?"v":"h"]=1;g.set(key,x)})}
+function build(ws,sd){let best=null;let a_=sd|0;const rnd=()=>{a_=a_+0x6D2B79F5|0;let t=Math.imul(a_^a_>>>15,1|a_);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+ for(let a=0;a<500;a++){const g=new Map(),pl=[];
+  const o=ws.map(w=>[w,w.t.length+(rnd()-.5)*3]).sort((x,y)=>y[1]-x[1]).map(x=>x[0]);
+  for(const w of o){let cs=[];
+   if(!pl.length)cs=[[0,0,0]];
+   else for(let d=0;d<2;d++)for(let r=-14;r<=14;r++)for(let c=-14;c<=14;c++)if(ok(g,w.t,r,c,d))cs.push([r,c,d]);
+   if(!cs.length)continue;
+   const[r,c,d]=cs[rnd()*cs.length|0];put(g,w.t,r,c,d);pl.push({...w,r,c,d})}
+  if(!best||pl.length>best.length)best=pl;
+  if(pl.length==ws.length)break}
+ return best}
+let PS=0;try{PS=+localStorage.getItem("yiq_seed")||0}catch(e){}
+if(!PS){PS=(Math.random()*1e9|0)+1;try{localStorage.setItem("yiq_seed",PS)}catch(e){}}
+function pick(n,sd){const b=n-n%5,pool=[].concat(...L.slice(b,b+5));let a=(sd^(b*7919))|0;
+ const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+ const k=pool.map(w=>[w,r()]).sort((x,y)=>y[1]-x[1]).map(x=>x[0]),g=n%5;return k.slice(g*6,g*6+6)}
+function reseed(){PS=(Math.random()*1e9|0)+1;try{localStorage.setItem("yiq_seed",PS)}catch(e){}load(cur)}
+function menu(){const m=document.getElementById("lv");m.innerHTML="";const tt=document.getElementById("tot");if(tt)tt.textContent="Jami: "+total()+" ochko";
+ for(let i=0;i<30;i++){const b=document.createElement("button");b.textContent=i+1;
+  b.className=(i==cur?"cur ":"")+(done[i]?"done":"");
+  b.disabled=!(UN||i==0||done[i]||done[i-1]);b.onclick=()=>load(i);m.appendChild(b)}}
+function load(n,sd){if(n>29)n=29;cur=n;won=false;lt=Date.now();hints=0;const W=pick(n,sd==null?PS:sd);P=build(W,sd==null?Math.random()*1e9|0:sd);cells=new Map();
+ let r0=1e9,c0=1e9,r1=-1e9,c1=-1e9;
+ P.forEach(w=>{const n=w.t.length;r0=Math.min(r0,w.r);c0=Math.min(c0,w.c);r1=Math.max(r1,w.r+(w.d?n-1:0));c1=Math.max(c1,w.c+(w.d?0:n-1))});
+ P.sort((a,b)=>a.r-b.r||a.c-b.c||a.d-b.d);
+ let num=0,last="";
+ P.forEach((w,i)=>{const k=w.r+","+w.c;if(k!=last){num++;last=k}w.n=num;
+  w.t.forEach((t,j)=>{const key=(w.r+(w.d?j:0))+","+(w.c+(w.d?0:j));
+   if(!cells.has(key))cells.set(key,{k:t,r:w.r+(w.d?j:0),c:w.c+(w.d?0:j),ws:[],n:0});
+   const ce=cells.get(key);ce.ws.push(i);if(j==0)ce.n=w.n})});
+ const g=document.getElementById("grid");g.innerHTML="";
+ g.style.gridTemplateColumns=`repeat(${c1-c0+1},40px)`;
+ for(let r=r0;r<=r1;r++)for(let c=c0;c<=c1;c++){const ce=cells.get(r+","+c),d=document.createElement("div");
+  if(!ce){d.className="c";d.style.visibility="hidden";g.appendChild(d);continue}
+  d.className="c";ce.el=d;
+  const inp=document.createElement("input");inp.maxLength=2;inp.autocomplete="off";ce.inp=inp;
+  inp.onfocus=()=>{if(!ce.ws.includes(act))setAct(ce.ws[0])};
+  inp.onclick=()=>{if(ce.ws.length>1&&ce.last===document.activeElement&&false){}};
+  inp.onmousedown=()=>{if(document.activeElement===inp&&ce.ws.length>1)setAct(ce.ws.find(x=>x!=act))};
+  inp.oninput=()=>{inp.value=inp.value.toUpperCase();d.classList.remove("ok","er");
+   if(norm(inp.value).length>=norm(ce.k).length)step(ce,1);autoWin()};
+  inp.onkeydown=e=>{if(e.key=="Backspace"&&!inp.value)step(ce,-1);
+   const m={ArrowRight:[0,1],ArrowLeft:[0,-1],ArrowDown:[1,0],ArrowUp:[-1,0]}[e.key];
+   if(m){const n=cells.get((ce.r+m[0])+","+(ce.c+m[1]));if(n){e.preventDefault();n.inp.focus()}}};
+  d.appendChild(inp);if(ce.n){const b=document.createElement("b");b.textContent=ce.n;d.appendChild(b)}
+  g.appendChild(d)}
+ const lists={0:document.getElementById("hc"),1:document.getElementById("vc")};lists[0].innerHTML=lists[1].innerHTML="";
+ P.forEach((w,i)=>{const li=document.createElement("li");li.id="cl"+i;li.innerHTML=`<span>${w.n}.</span>${w.q} (${w.t.length})`;
+  li.onclick=()=>{setAct(i);const f=cellsOf(i)[0];f.inp.focus()};lists[w.d].appendChild(li)});
+ document.getElementById("ttl").textContent=`${n+1}-daraja`+(P.length<W.length?` (${P.length} ta so‘z)`:"");
+ document.getElementById("msg").textContent="";document.getElementById("nx").style.display="none";
+ menu();setAct(0);cellsOf(0)[0].inp.focus()}
+function cellsOf(i){const w=P[i];return w.t.map((t,j)=>cells.get((w.r+(w.d?j:0))+","+(w.c+(w.d?0:j))))}
+function setAct(i){act=i;const w=P[i];document.getElementById('q').innerHTML=`<small>${w.n}-${w.d?'vertikal':'gorizontal'} · ${w.t.length} harf</small>${w.q}`;cells.forEach(c=>c.el.classList.remove("hl"));cellsOf(i).forEach(c=>c.el.classList.add("hl"));
+ P.forEach((_,j)=>document.getElementById("cl"+j).classList.toggle("on",j==i))}
+function step(ce,s){const cs=cellsOf(act),i=cs.indexOf(ce)+s;if(cs[i])cs[i].inp.focus()}
+function ans(ce){return norm(ce.inp.value)==norm(ce.k)}
+function autoWin(){report();P.forEach((_,i)=>document.getElementById("cl"+i).classList.toggle("dn",cellsOf(i).every(ans)));
+ if(won)return;if([...cells.values()].every(ans)){won=true;done[cur]=1;const sec=(Date.now()-lt)/1000;pts[cur]=Math.max(pts[cur]||0,Math.max(50,100+Math.max(0,Math.round((300-sec)/3))-15*hints));save();menu();report();saveScore();
+  document.getElementById("msg").textContent=cur==29?"🎉 Tabriklaymiz! Barcha 30 darajani yakunladingiz!":"🎉 Barakalla! Daraja yechildi. +"+pts[cur]+" ochko";
+  if(cur<29)document.getElementById("nx").style.display=""}}
+function chk(){cells.forEach(c=>{c.el.classList.remove("ok","er");if(c.inp.value)c.el.classList.add(ans(c)?"ok":"er")});
+ autoWin();if(!won)document.getElementById("msg").textContent="Yashil — to‘g‘ri, qizil — xato."}
+function hint(){const c=cellsOf(act).find(c=>!ans(c));if(!c)return;hints++;c.inp.value=c.k.toUpperCase();c.el.classList.add("ok");autoWin()}
+let RM=null,DB=null,ME=null,room=null,t0=Date.now(),myName="O‘yinchi";
+const $=id=>document.getElementById(id);
+const FBC={apiKey:"AIzaSyCmAl77lfvfz1iEAB4L6ylv-0ANh8_NZow",authDomain:"krosvorf-game.firebaseapp.com",projectId:"krosvorf-game",storageBucket:"krosvorf-game.firebasestorage.app",messagingSenderId:"483414879153",appId:"1:483414879153:web:c5f4ca0a8cfef2c698eb90"};
+async function fbInit(){const B="https://www.gstatic.com/firebasejs/10.14.1/";
+ const {initializeApp}=await import(B+"firebase-app.js"),F=await import(B+"firebase-firestore.js");
+ const fs=F.getFirestore(initializeApp(FBC)),mk=s=>({docs:s.docs.map(x=>({id:x.id,data:()=>x.data()}))});
+ DB={collection:n=>({orderBy:(f,d)=>({limit:k=>{const q=F.query(F.collection(fs,n),F.orderBy(f,d),F.limit(k));
+   return{onSnapshot:(cb,er)=>F.onSnapshot(q,sn=>cb(mk(sn)),er),get:async()=>mk(await F.getDocs(q))}}}),
+  doc:id=>({set:v=>F.setDoc(F.doc(fs,n,id),v),delete:()=>F.deleteDoc(F.doc(fs,n,id))})})};
+ let uid="";try{uid=localStorage.getItem("yiq_uid")||"";if(!uid){uid="u"+Math.random().toString(36).slice(2,12)+Date.now().toString(36);localStorage.setItem("yiq_uid",uid)}}catch(e){}
+ if(!uid)uid="u"+Math.random().toString(36).slice(2,12);
+ ME={id:async()=>uid,profiles:async()=>({}),canEdit:async()=>false}}
+async function initOnline(){
+ if(window.claude){try{RM=await claude.use("room");DB=await claude.use("db");ME=await claude.use("user")}catch(e){}}
+ else{try{await fbInit()}catch(e){console.warn("Firebase ulanmadi",e)}}
+ if(!RM&&!DB)return;
+ $("onl").style.display="";
+ try{const nm=localStorage.getItem("yiq_name");if(nm){myName=nm;$("nm").value=nm}}catch(e){}
+ if(!RM)$("rm").style.display="none";
+ if(DB&&ME)try{DB.collection("scores").orderBy("score","desc").limit(10).onSnapshot(async sn=>{
+  const ids=sn.docs.map(d=>d.id),ps=ids.length?await ME.profiles(ids):{},o=$("lb");o.innerHTML="";
+  sn.docs.forEach((d,i)=>{const li=document.createElement("li");const q=d.data();li.textContent=(i+1)+". "+(q.name||"O‘yinchi")+" — "+q.score+" ochko ("+q.levels+" daraja)";o.appendChild(li)})},()=>{})}catch(e){}}
+async function saveScore(){try{const nm=localStorage.getItem("yiq_name")||"";if(DB&&ME&&nm){const id=await ME.id();if(id)await DB.collection("scores").doc(id).set({name:nm,score:total(),levels:done.filter(Boolean).length})}}catch(e){}}
+function setName(){const v=$("nm").value.trim().slice(0,40);try{localStorage.setItem("yiq_name",v)}catch(e){}myName=v||"O‘yinchi";showWho();saveScore();report()}
+function report(){if(!room)return;try{const c=[...cells.values()];room.presence({name:myName,lv:cur+1,prog:Math.round(100*c.filter(ans).length/c.length),t:won?Math.round((Date.now()-t0)/1000):null})}catch(e){}}
+function drawPeers(ps){const b=$("pl");b.innerHTML="";ps.forEach(p=>{const d=p.presence||{},w=document.createElement("div");w.style.cssText="margin:6px 0;font-size:14px";
+ w.textContent=(d.name||"O‘yinchi")+(p.isMe?" (siz)":"")+" · "+(d.lv||"?")+"-daraja · "+(d.prog||0)+"%"+(d.t!=null?" 🏁 "+d.t+" s":"");
+ const r=document.createElement("div");r.style.cssText="height:8px;border-radius:4px;background:var(--bd);margin-top:3px";
+ const f=document.createElement("div");f.style.cssText="height:8px;border-radius:4px;background:var(--ac);width:"+(d.prog||0)+"%";r.appendChild(f);w.appendChild(r);b.appendChild(w)})}
+async function joinR(){try{const c=$("rc").value.trim().toLowerCase()||String(1000+Math.random()*9000|0);$("rc").value=c;
+ if(room)await room.leave();room=await RM.join("krs-"+c);
+ room.on("start",m=>{load(m.data.n,m.data.seed);t0=Date.now();report();$("rs").textContent="Musobaqa boshlandi! Birinchi bo‘lib yeching."});
+ room.onPeers(ch=>drawPeers(ch.peers));
+ await room.presence({name:myName,lv:cur+1,prog:0,t:null});
+ $("sb").style.display="";$("rs").textContent="Xona kodi: "+c+". Do‘stingizga shu kodni yuboring, hamma kirgach «Musobaqani boshlash»ni bosing."}catch(e){$("rs").textContent="Ulanib bo‘lmadi."}}
+function startR(){if(room)room.emit("start",{n:cur,seed:Math.random()*1e9|0})}
+const ADMIN_LOGIN="admin2005",ADMIN_PASS="admin123";
+let UN=false;try{UN=localStorage.getItem("yiq_unlock")=="1"}catch(e){}
+function toast(m){const t=$("tst");t.textContent=m;t.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display="none",3000)}
+function cfm(m,fn){$("cfb").innerHTML='<div style="margin-bottom:12px"></div><div class="bar"><button id="cfy">Ha</button><button class="s" id="cfn">Yo‘q</button></div>';$("cfb").firstChild.textContent=m;$("cf").classList.add("on");
+ $("cfn").onclick=()=>$("cf").classList.remove("on");$("cfy").onclick=()=>{$("cf").classList.remove("on");fn()}}
+function grant(){if(!INV){INV=newInv().replace("-","");try{localStorage.setItem("yiq_inv",INV)}catch(e){}$("lgk").style.display="none"}adminDraw();$("adm").classList.add("on")}
+async function adminOpen(){let ok=false;try{ok=!!(ME&&await ME.canEdit())}catch(e){}
+ if(ok){grant();return}
+ $("ab").innerHTML='<h3>⚙ Admin kirish</h3><input id="al" placeholder="Login" autocomplete="username" autocapitalize="off"><input id="ap" type="password" placeholder="Parol" autocomplete="current-password" onkeydown="if(event.key==\'Enter\')adminLogin()"><div id="ae" class="note" style="color:#c62828;min-height:16px"></div><div class="bar"><button onclick="adminLogin()">Kirish</button><button class="s" onclick="$(\'adm\').classList.remove(\'on\')">Bekor qilish</button></div>';
+ $("adm").classList.add("on");$("al").focus()}
+function adminLogin(){if($("al").value.trim()===ADMIN_LOGIN&&$("ap").value===ADMIN_PASS)grant();else $("ae").textContent="Login yoki parol noto‘g‘ri."}
+function adminDraw(){let h=`<h3>⚙ Admin panel</h3><div class="note">Jami: ${total()} ochko · yechilgan: ${done.filter(Boolean).length}/30 (shu qurilmadagi natija)</div><table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:14px">`;
+ for(let i=0;i<30;i++)h+=`<tr style="border-bottom:1px solid var(--bd)"><td>${i+1}-daraja</td><td>${done[i]?"✅":"—"}</td><td style="text-align:right">${pts[i]||0}</td></tr>`;
+ h+=`</table><h3 style="margin-top:6px">🎟 Taklif kodi</h3><div class="note">Bitta kod hamma uchun ishlaydi: havolani guruhga tashlang. Xohlasangiz, har guruhga alohida kod yarating.</div><div id="iv"></div><div class="bar"><button onclick="genInv()">➕ Yangi kod</button></div><h3 style="margin-top:14px">📊 Natijalar</h3><div class="bar"><button class="s" onclick="toggleUn()">${UN?"🔒 Darajalarni yopish":"🔓 Hamma darajani ochish"}</button><button class="s" onclick="csv()">⬇ CSV</button><button class="s" onclick="resetAll()">🗑 Tozalash</button><button onclick="$('adm').classList.remove('on')">Yopish</button></div>`;
+ if(DB)h+=`<h3 style="margin-top:14px">🌐 Onlayn natijalar</h3><div id="ol" class="note">Yuklanmoqda…</div>`;
+ $("ab").innerHTML=h;if(DB)loadOl()}
+const SECRET="yashil-2026-sir";
+const norm2=s=>(s||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+function chk4(b){let h=2166136261;const t=b+SECRET;for(let i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,16777619)}return((h>>>0)%1679616).toString(36).toUpperCase().padStart(4,"0")}
+function validInv(c){c=norm2(c);return c.length==8&&chk4(c.slice(0,4))==c.slice(4)}
+function newInv(){const A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let b="";for(let i=0;i<4;i++)b+=A[Math.random()*A.length|0];const c=b+chk4(b);return c.slice(0,4)+"-"+c.slice(4)}
+function genInv(){const c=newInv(),u=location.href.split("#")[0]+"#k="+c;
+ $("iv").innerHTML=`<div style="font-size:22px;font-weight:700;letter-spacing:2px;margin:6px 0;color:var(--tx)">${c}</div><div class="note" style="word-break:break-all;user-select:all">${u}</div><div class="bar"><button class="s" onclick="cp('${u}')">📋 Havolani nusxalash</button><button onclick="tg('${u}')">✈ Telegramda ulashish</button></div>`}
+function cp(t){try{navigator.clipboard.writeText(t).then(()=>toast("Nusxalandi")).catch(()=>toast("Havolani bosib turib qo‘lda nusxalang"))}catch(e){toast("Havolani bosib turib qo‘lda nusxalang")}}
+function tg(u){const w=window.open("https://t.me/share/url?url="+encodeURIComponent(u)+"&text="+encodeURIComponent("🌱 Yashil iqtisodiyot krossvordi — o‘ynashga taklif qilaman!"),"_blank");if(!w)location.href="https://t.me/share/url?url="+encodeURIComponent(u)}
+function toggleUn(){UN=!UN;try{localStorage.setItem("yiq_unlock",UN?"1":"0")}catch(e){}menu();adminDraw()}
+function resetAll(){cfm("Shu qurilmadagi barcha natijalar o‘chiriladi. Davom etilsinmi?",()=>{done=[];pts=[];save();try{localStorage.removeItem("yiq_unlock")}catch(e){}UN=false;load(0);adminDraw()})}
+async function dl(name,text){try{const d=window.claude&&await claude.use("downloads");if(d){await d.save({filename:name,data:text});return}}catch(e){}
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+text],{type:"text/csv"}));a.download=name;a.click()}
+function csv(){let t="daraja,yechildi,ochko\n";for(let i=0;i<30;i++)t+=(i+1)+","+(done[i]?1:0)+","+(pts[i]||0)+"\n";t+="jami,"+done.filter(Boolean).length+","+total()+"\n";dl("natijalar.csv",t)}
+async function loadOl(){const o=$("ol");try{const sn=await DB.collection("scores").orderBy("score","desc").limit(200).get();
+ if(!sn.docs.length){o.textContent="Hozircha natija yo‘q.";return}
+ const ps=ME?await ME.profiles(sn.docs.map(d=>d.id)):{};o.innerHTML="";
+ sn.docs.forEach((d,i)=>{const q=d.data(),r=document.createElement("div");r.style.cssText="display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px solid var(--bd);font-size:14px;color:var(--tx)";
+  const sp=document.createElement("span");sp.textContent=(i+1)+". "+(q.name||(ps[d.id]&&ps[d.id].name)||"O‘yinchi")+" — "+q.score+" ochko ("+q.levels+" daraja)";
+  const b=document.createElement("button");b.className="s del";b.textContent="🗑";b.onclick=()=>cfm("Bu natija o‘chirilsinmi?",async()=>{try{await DB.collection("scores").doc(d.id).delete();loadOl()}catch(e){toast("O‘chirib bo‘lmadi (ruxsat yo‘q).")}});
+  r.appendChild(sp);r.appendChild(b);o.appendChild(r)});
+ const x=document.createElement("button");x.className="s";x.style.marginTop="8px";x.textContent="🗑 Hammasini o‘chirish";
+ x.onclick=()=>cfm("Reytingdagi BARCHA natijalar o‘chiriladi!",async()=>{try{for(const d of sn.docs)await DB.collection("scores").doc(d.id).delete();loadOl()}catch(e){toast("O‘chirib bo‘lmadi (ruxsat yo‘q).")}});
+ o.appendChild(x)}catch(e){o.textContent="Yuklab bo‘lmadi."}}
+function showWho(){$("who").textContent=myName}
+function askName(){$("lgk").style.display=INV?"none":"";$("lgn").value=myName!="O‘yinchi"?myName:"";$("lge").textContent="";$("lg").classList.add("on");$("lgn").focus()}
+function enter(){if(!INV){const c=$("lgk").value;if(!validInv(c)){$("lge").textContent="Taklif kodi noto‘g‘ri yoki kiritilmagan.";return}INV=norm2(c);try{localStorage.setItem("yiq_inv",INV)}catch(e){}}const v=$("lgn").value.trim().slice(0,40);if(v.length<2){$("lge").textContent="Ismingizni kiriting (kamida 2 harf).";return}
+ try{localStorage.setItem("yiq_name",v)}catch(e){}myName=v;$("nm").value=v;$("lg").classList.remove("on");showWho();saveScore();report()}
+let INV="";
+{try{INV=localStorage.getItem("yiq_inv")||""}catch(e){}
+ if(!validInv(INV)){INV="";const m=location.hash.match(/k=([A-Za-z0-9-]+)/);if(m){if(validInv(m[1])){INV=norm2(m[1]);try{localStorage.setItem("yiq_inv",INV)}catch(e){}}else $("lgk").value=m[1]}}
+ let n="";try{n=localStorage.getItem("yiq_name")||""}catch(e){}if(n)myName=n;showWho();if(!n||!INV)askName()}
+load(Math.min(done.filter(Boolean).length,29));initOnline().then(saveScore);
+</script></body></html>
